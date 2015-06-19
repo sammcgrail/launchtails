@@ -7,6 +7,10 @@
         <tr>
           <th>Title</th>
           <th>Description</th>
+          <th>Featured?</th>
+          <th>category</th>
+          <th>alcohol level</th>
+          <th>delete drink</th>
           <th></th>
         </tr>
 
@@ -14,8 +18,11 @@
           <tr>
             <td><%= drink.title %></td>
             <td><%= truncate(drink.description, length: 30) %></td>
+            <td><%= drink.featured %></td>
+            <td><%= drink.category_id %></td>
+            <td><%= drink.alcohol_level %></td>
             <td>
-              <%= link_to 'Delete',
+              <%= link_to 'X',
                 '/drinks/' + drink.to_param,
                 method: :delete %>
             </td>
@@ -25,5 +32,9 @@
 
       <%= paginate @drinks %>
     <%- end -%>
+    <br>
+    <a href="/drinks/new">make new</a>
+    <br>
+    <a href="/featured_drinks">feat. Dranks</a>
   </div>
 </div>

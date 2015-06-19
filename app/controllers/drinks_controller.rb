@@ -1,3 +1,4 @@
+require 'pry'
 class DrinksController < ApplicationController
   def new
     @drink = Drink.new
@@ -12,6 +13,16 @@ class DrinksController < ApplicationController
       render :new
     end
   end
+
+
+  def destroy
+    @drink = Drink.find(params[:id])
+    @drink.destroy
+    redirect_to '/drinks'
+  end
+
+
+
 
   def index
     @drinks = Drink.page(params[:page])
